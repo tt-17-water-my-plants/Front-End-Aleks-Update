@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 
-function Login (props) {
-    const {} =props
+function Login () {
+    const {user, setUser} = useState('')
+    
     
     const onSubmit = evt => {
         evt.preventDefault()
+        user()
     }
     const onChange = evt => {
         const {name, value} = evt.target
-        change(name, value)
+        setUser(name, value)
     }
     
     
