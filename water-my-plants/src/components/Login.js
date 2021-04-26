@@ -8,7 +8,8 @@ function Login (props) {
         evt.preventDefault()
     }
     const onChange = evt => {
-
+        const {name, value} = evt.target
+        change(name, value)
     }
     
     
@@ -21,7 +22,7 @@ function Login (props) {
             <label>Username
                 <input
                 value={}
-                onChange={}
+                onChange={onChange}
                 name='username'
                 type='text'
                 />
@@ -29,7 +30,7 @@ function Login (props) {
             <label>Password
                 <input
                 value={}
-                onChange={}
+                onChange={onChange}
                 name='password'
                 type='text'
                 />
@@ -38,3 +39,5 @@ function Login (props) {
         </form>
     )
 }
+
+export default Login
