@@ -5,6 +5,7 @@ import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
 import { connect } from "react-redux";
+import plantNames from "./plantData";
 
 const Container = styled.div`
   height: 80vh;
@@ -116,6 +117,11 @@ function CreatePlant(props) {
               --SELECT--
             </option>
             <option value="temp">temporary option</option>
+            {plantNames.map(plant => {
+              return (
+                <option value={plant.name}>{plant.name}</option>
+              )
+            })}
           </select>
           <div className="errors">{errors.species}</div>
         </label>
@@ -132,7 +138,7 @@ function CreatePlant(props) {
         <label>
           {"Image (optional)"}
           <input
-            type="file"
+            type="text"
             name="image"
             value={formValues.image}
             onChange={change}
