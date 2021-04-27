@@ -1,10 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
-      <button to="/login">Login</button>
-      <button to="/createaccount">Create Account</button>
+      <Link to="/login">
+        <button>Login</button>
+      </Link>
+      <Link to="/createaccount">
+        <button>Create Account</button>
+      </Link>
     </div>
   );
 };
