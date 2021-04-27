@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("UserId");
   };
 
   return (
@@ -13,7 +14,7 @@ const Nav = () => {
       <br />
       <NavLink to="/login">Login</NavLink>
       <br />
-      <NavLink to="/" onClick={handleLogout}>
+      <NavLink to="/login" onClick={handleLogout}>
         Logout
       </NavLink>
       <br />

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import schema from "../validation/newPlantSchema";
 import styled from "styled-components";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { useHistory } from "react-router";
+import { connect } from "react-redux";
 
 const Container = styled.div`
   height: 80vh;
@@ -22,21 +25,22 @@ const Form = styled.form`
 `;
 
 const initialFormValues = {
-  nickName: "",
+  nickname: "",
   species: "",
-  water: "",
-  image: "",
+  h2oFrequency: "",
+  image_url: "",
 };
 const initialErrors = {
-  nickName: "",
+  nickname: "",
   species: "",
-  water: "",
+  h2oFrequency: "",
 };
 
-export default function CreatePlant() {
+function CreatePlant(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [errors, setErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(true);
+  const { push } = useHistory();
 
   const change = (evt) => {
     const { name, value } = evt.target;
@@ -68,16 +72,21 @@ export default function CreatePlant() {
 
   const submit = (evt) => {
     evt.preventDefault();
-    const newPlant = [
-      {
-        nickName: formValues.nickName.trim(),
-        species: formValues.species,
-        water: formValues.water.trim(),
-        image: formValues.image.trim(),
-      },
-    ];
-    console.log(newPlant);
-    setFormValues(initialFormValues);
+    const newPlant = {
+      nickname: formValues.nickname.trim(),
+      species: formValues.species,
+      h2oFrequency: formValues.h2oFrequency.trim(),
+      image_url: formValues.image_url.trim(),
+      user_id: JSON.parse(localStorage.getItem("UserId")),
+    };
+    axiosWithAuth()
+      .post(`/api/plants/${localStorage.getItem("UserId")}`, newPlant)
+      .then((res) => {
+        console.log(res);
+        setFormValues(initialFormValues);
+        push("/userpage");
+      })
+      .catch((err) => console.log({ err }));
   };
 
   return (
@@ -89,11 +98,11 @@ export default function CreatePlant() {
           Nick Name
           <input
             type="text"
-            name="nickName"
-            value={formValues.nickName}
+            name="nickname"
+            value={formValues.nickname}
             onChange={change}
           />
-          <div className="errors">{errors.nickName}</div>
+          <div className="errors">{errors.nickname}</div>
         </label>
         <label>
           Species
@@ -114,11 +123,11 @@ export default function CreatePlant() {
           H<sub>2</sub>O frequency
           <input
             type="text"
-            name="water"
-            value={formValues.water}
+            name="h2oFrequency"
+            value={formValues.h2oFrequency}
             onChange={change}
           />
-          <div className="errors">{errors.water}</div>
+          <div className="errors">{errors.h2oFrequency}</div>
         </label>
         <label>
           {"Image (optional)"}
@@ -134,3 +143,10 @@ export default function CreatePlant() {
     </Container>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    data: state.data,
+  };
+};
+
+export default connect(mapStateToProps, {})(CreatePlant);

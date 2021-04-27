@@ -15,7 +15,7 @@ const UserPage = (props) => {
           <img src={item.image_url} alt="plant pic" />
           <h3>{item.nickname}</h3>
           <p>Species: {item.species}</p>
-          <p>H2OFrequency: {item.h20Frequency}</p>
+          <p>H2OFrequency: {item.h2oFrequency}</p>
         </div>
       ))}
     </div>
