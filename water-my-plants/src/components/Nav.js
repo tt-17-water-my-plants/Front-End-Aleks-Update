@@ -17,6 +17,10 @@ const Nav = () => {
         Logout
       </NavLink>
       <br />
+      <NavLink to="/profile">Profile</NavLink>
+      <br />
+      <NavLink to="/userpage">User Page</NavLink>
+      <br />
       <NavLink to="/newplantform">New Plant Form</NavLink>
     </div>
   );

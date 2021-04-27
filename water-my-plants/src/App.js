@@ -6,6 +6,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import Nav from "./components/Nav";
 import NewPlantForm from "./components/NewPlantForm";
 import UserPage from "./components/UserPage";
+import UserProfile from "./components/UserProfile";
 import "./App.css";
 import { Switch, Route } from "react-router";
 
@@ -16,7 +17,7 @@ function App() {
       <Switch>
         {/* <PrivateRoute path='/userpage/items/:id' component={ItemPage} /> */}
         <PrivateRoute path="/userpage" component={UserPage} />
-        {/* <PrivateRoute path='/profile' component={Profile} /> */}
+        <PrivateRoute path="/profile" component={UserProfile} />
         <PrivateRoute path="/newplantform" component={NewPlantForm} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
