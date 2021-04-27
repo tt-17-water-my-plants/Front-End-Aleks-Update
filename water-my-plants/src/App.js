@@ -17,7 +17,7 @@ function App() {
         {/* <PrivateRoute path='/userpage' component={UserPage} /> */}
         {/* <PrivateRoute path='/profile' component={Profile} /> */}
         <Route path="/newplantform" component={NewPlantForm} />
-        {/* <Route path="/login" component={Login} /> */}
+        <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
       </Switch>
     </div>
