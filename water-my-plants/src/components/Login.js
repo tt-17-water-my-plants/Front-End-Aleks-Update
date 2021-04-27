@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
 
@@ -19,6 +18,7 @@ function Login() {
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("UserId", res.data.user_id);
         push("/userpage");
       })
       .catch((err) => {
