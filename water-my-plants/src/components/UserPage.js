@@ -11,7 +11,7 @@ const UserPage = (props) => {
     <div>
       <h1>My plants</h1>
       {props.data.map((item) => (
-        <div key={item.plant_id}>
+        <div className="card-container" key={item.plant_id}>
           <img src={item.image_url} alt="plant pic" />
           <h3>{item.nickname}</h3>
           <p>Species: {item.species}</p>
