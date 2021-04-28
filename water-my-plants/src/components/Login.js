@@ -3,6 +3,8 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
 import styled from 'styled-components';
 import { Form, Container } from './Styles/LoginStyle'
+import Nav from "./Nav";
+
 
 const initialUser = {
   username: "",
@@ -33,28 +35,32 @@ function Login() {
   };
 
   return (
-    <Container className='background-img'>
-    <Form id="login-form" onSubmit={onSubmit}>
-      <h2>Sign In</h2>
-      <label for='username'/>
-        Username
-        <input
-          value={user.username}
-          onChange={onChange}
-          name="username"
-          type="text"
-        />
-      <label for ='password'/>
-        Password
-        <input
-          value={user.password}
-          onChange={onChange}
-          name="password"
-          type="text"
-        />
-      <button>Sign In</button>
-    </Form>
-    </Container>
+    <>
+      <Nav />
+      <Container className='background-img'>
+        <Form id="login-form" onSubmit={onSubmit}>
+          <h2>Sign In</h2>
+          <label for='username'/>
+            Username
+            <input
+              value={user.username}
+              onChange={onChange}
+              name="username"
+              type="text"
+            />
+          <label for ='password'/>
+            Password
+            <input
+              value={user.password}
+              onChange={onChange}
+              name="password"
+              type="text"
+            />
+          <button>Sign In</button>
+        </Form>
+      </Container>
+    </>
+
   );
 }
 

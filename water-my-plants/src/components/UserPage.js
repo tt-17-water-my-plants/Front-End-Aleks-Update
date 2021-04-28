@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getUserData } from "../store";
+import Nav from "./Nav";
 import PlantCard from "./PlantCard";
 
 const UserPage = (props) => {
@@ -10,12 +11,15 @@ const UserPage = (props) => {
   }, []);
 
   return (
-    <div>
-      <h1>My plants</h1>
-      {props.data.map((item) => (
-        <PlantCard item={item} key={item.plant_id} />
-      ))}
-    </div>
+    <>
+      <Nav />
+      <div>
+        <h1>My plants</h1>
+        {props.data.map((item) => (
+          <PlantCard item={item} key={item.plant_id} />
+        ))}
+      </div>
+    </>
   );
 };
 

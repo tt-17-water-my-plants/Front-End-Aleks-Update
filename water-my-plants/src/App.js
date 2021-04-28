@@ -16,7 +16,7 @@ import EditProfile from "./components/EditProfile";
 function App() {
   return (
     <div className="App">
-      <Nav />
+      {/* <Nav /> */}
       <Switch>
         {/* <PrivateRoute path='/userpage/items/:id' component={ItemPage} /> */}
         <PrivateRoute path="/userpage" component={UserPage} />
@@ -26,7 +26,13 @@ function App() {
         <PrivateRoute path="/editprofile" component={EditProfile} />
         <Route path="/createaccount" component={CreateAccount} />
         <Route path="/login" component={Login} />
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
+        {/* <Route
+          path="/"
+          component={() => {
+            window.location.href = "https://marketing-page-three.vercel.app/";
+          }}
+        /> */}
       </Switch>
     </div>
   );
