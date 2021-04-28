@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Nav from "./Nav";
 
 const initialData = {
   password: "",
@@ -29,12 +30,15 @@ function Profile() {
   };
 
   return (
-    <div>
-      <h2>Profile</h2>
-      <p>Username: {userData.username}</p>
-      <p>Phone Number: {userData.phone_number}</p>
-      <button onClick={handleUpdate}>Update Profile</button>
-    </div>
+    <>
+      <Nav />
+      <div>
+        <h2>Profile</h2>
+        <p>Username: {userData.username}</p>
+        <p>Phone Number: {userData.phone_number}</p>
+        <button onClick={handleUpdate}>Update Profile</button>
+      </div>
+    </>
   );
 }
 

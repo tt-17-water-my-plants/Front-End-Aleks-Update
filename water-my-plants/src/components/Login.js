@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
+import Nav from "./Nav";
 
 const initialUser = {
   username: "",
@@ -31,28 +32,31 @@ function Login() {
   };
 
   return (
-    <form id="login-form" onSubmit={onSubmit}>
-      <h2>Sign In</h2>
-      <label>
-        Username
-        <input
-          value={user.username}
-          onChange={onChange}
-          name="username"
-          type="text"
-        />
-      </label>
-      <label>
-        Password
-        <input
-          value={user.password}
-          onChange={onChange}
-          name="password"
-          type="text"
-        />
-      </label>
-      <button>Sign In</button>
-    </form>
+    <>
+      <Nav />
+      <form id="login-form" onSubmit={onSubmit}>
+        <h2>Sign In</h2>
+        <label>
+          Username
+          <input
+            value={user.username}
+            onChange={onChange}
+            name="username"
+            type="text"
+          />
+        </label>
+        <label>
+          Password
+          <input
+            value={user.password}
+            onChange={onChange}
+            name="password"
+            type="text"
+          />
+        </label>
+        <button>Sign In</button>
+      </form>
+    </>
   );
 }
 

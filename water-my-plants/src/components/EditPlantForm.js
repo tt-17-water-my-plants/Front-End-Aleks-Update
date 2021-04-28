@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Nav from "./Nav";
 
 const initialState = {
   nickname: "",
@@ -48,47 +49,50 @@ const EditPlantForm = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nickname
-          <input
-            type="text"
-            name="nickname"
-            value={item.nickname}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Species
-          <input
-            type="text"
-            name="species"
-            value={item.species}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          H<sub>2</sub>O frequency
-          <input
-            type="text"
-            name="h2oFrequency"
-            value={item.h2oFrequency}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          {"Image (optional)"}
-          <input
-            type="text"
-            name="image"
-            value={item.image_url}
-            onChange={handleChange}
-          />
-        </label>
-        <button>Edit</button>
-      </form>
-    </div>
+    <>
+      <Nav />
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Nickname
+            <input
+              type="text"
+              name="nickname"
+              value={item.nickname}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Species
+            <input
+              type="text"
+              name="species"
+              value={item.species}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            H<sub>2</sub>O frequency
+            <input
+              type="text"
+              name="h2oFrequency"
+              value={item.h2oFrequency}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            {"Image (optional)"}
+            <input
+              type="text"
+              name="image"
+              value={item.image_url}
+              onChange={handleChange}
+            />
+          </label>
+          <button>Edit</button>
+        </form>
+      </div>
+    </>
   );
 };
 

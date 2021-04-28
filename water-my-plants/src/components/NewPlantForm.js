@@ -6,6 +6,7 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import plantNames from "./plantData";
+import Nav from "./Nav";
 
 const Container = styled.div`
   height: 80vh;
@@ -91,60 +92,63 @@ function CreatePlant(props) {
   };
 
   return (
-    <Container>
-      {/* Icon here? */}
-      <h2>Create New Plant!</h2>
-      <Form onSubmit={submit}>
-        <label>
-          Nick Name
-          <input
-            type="text"
-            name="nickname"
-            value={formValues.nickname}
-            onChange={change}
-          />
-          <div className="errors">{errors.nickname}</div>
-        </label>
-        <label>
-          Species
-          <select
-            type="text"
-            name="species"
-            value={formValues.species}
-            onChange={change}
-          >
-            <option disabled value="">
-              --SELECT--
-            </option>
-            <option value="temp">temporary option</option>
-            {plantNames.map((plant) => (
-              <option value={plant.name}>{plant.name}</option>
-            ))}
-          </select>
-          <div className="errors">{errors.species}</div>
-        </label>
-        <label>
-          H<sub>2</sub>O frequency
-          <input
-            type="text"
-            name="h2oFrequency"
-            value={formValues.h2oFrequency}
-            onChange={change}
-          />
-          <div className="errors">{errors.h2oFrequency}</div>
-        </label>
-        <label>
-          {"Image (optional)"}
-          <input
-            type="text"
-            name="image"
-            value={formValues.image}
-            onChange={change}
-          />
-        </label>
-        <button disabled={disabled}>Create</button>
-      </Form>
-    </Container>
+    <>
+      <Nav />
+      <Container>
+        {/* Icon here? */}
+        <h2>Create New Plant!</h2>
+        <Form onSubmit={submit}>
+          <label>
+            Nick Name
+            <input
+              type="text"
+              name="nickname"
+              value={formValues.nickname}
+              onChange={change}
+            />
+            <div className="errors">{errors.nickname}</div>
+          </label>
+          <label>
+            Species
+            <select
+              type="text"
+              name="species"
+              value={formValues.species}
+              onChange={change}
+            >
+              <option disabled value="">
+                --SELECT--
+              </option>
+              <option value="temp">temporary option</option>
+              {plantNames.map((plant) => (
+                <option value={plant.name}>{plant.name}</option>
+              ))}
+            </select>
+            <div className="errors">{errors.species}</div>
+          </label>
+          <label>
+            H<sub>2</sub>O frequency
+            <input
+              type="text"
+              name="h2oFrequency"
+              value={formValues.h2oFrequency}
+              onChange={change}
+            />
+            <div className="errors">{errors.h2oFrequency}</div>
+          </label>
+          <label>
+            {"Image (optional)"}
+            <input
+              type="text"
+              name="image"
+              value={formValues.image}
+              onChange={change}
+            />
+          </label>
+          <button disabled={disabled}>Create</button>
+        </Form>
+      </Container>
+    </>
   );
 }
 const mapStateToProps = (state) => {

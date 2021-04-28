@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Nav from "./Nav";
 
 const initialData = {
   password: "",
@@ -38,30 +39,33 @@ const EditProfile = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
-      <h2>Edit Profile</h2>
-      <form onSubmit={onSubmit}>
-        <label>
-          Phone
-          <input
-            type="text"
-            name="phone_number"
-            value={profile.phone_number}
-            onChange={onChange}
-          />
-        </label>
-        <label>
-          Password Required (Update password as well)
-          <input
-            type="password"
-            name="password"
-            value={profile.password}
-            onChange={onChange}
-          />
-        </label>
-        <button>Update</button>
-      </form>
-    </div>
+    <>
+      <Nav />
+      <div>
+        <h2>Edit Profile</h2>
+        <form onSubmit={onSubmit}>
+          <label>
+            Phone
+            <input
+              type="text"
+              name="phone_number"
+              value={profile.phone_number}
+              onChange={onChange}
+            />
+          </label>
+          <label>
+            Password Required (Update password as well)
+            <input
+              type="password"
+              name="password"
+              value={profile.password}
+              onChange={onChange}
+            />
+          </label>
+          <button>Update</button>
+        </form>
+      </div>
+    </>
   );
 };
 
