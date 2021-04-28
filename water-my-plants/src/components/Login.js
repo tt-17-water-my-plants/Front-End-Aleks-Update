@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
+import styled from 'styled-components';
+import { Form, Container } from './Styles/LoginStyle'
 
 const initialUser = {
   username: "",
@@ -31,9 +33,10 @@ function Login() {
   };
 
   return (
-    <form id="login-form" onSubmit={onSubmit}>
+    <Container className='background-img'>
+    <Form id="login-form" onSubmit={onSubmit}>
       <h2>Sign In</h2>
-      <label>
+      <label for='username'/>
         Username
         <input
           value={user.username}
@@ -41,8 +44,7 @@ function Login() {
           name="username"
           type="text"
         />
-      </label>
-      <label>
+      <label for ='password'/>
         Password
         <input
           value={user.password}
@@ -50,9 +52,9 @@ function Login() {
           name="password"
           type="text"
         />
-      </label>
       <button>Sign In</button>
-    </form>
+    </Form>
+    </Container>
   );
 }
 
