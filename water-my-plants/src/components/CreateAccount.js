@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Nav from "./Nav";
 
 const initialFormValues = {
   username: "",
@@ -40,39 +41,42 @@ export default function CreateAccount() {
   };
 
   return (
-    <div>
-      {/* Icon? */}
-      <h2>Sign Up</h2>
-      <form onSubmit={onSubmit}>
-        <label>
-          Username
-          <input
-            type="text"
-            name="username"
-            value={formValues.username}
-            onChange={onChange}
-          />
-        </label>
-        <label>
-          Phone
-          <input
-            type="text"
-            name="phone_number"
-            value={formValues.phone_number}
-            onChange={onChange}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={formValues.password}
-            onChange={onChange}
-          />
-        </label>
-        <button>Submit</button>
-      </form>
-    </div>
+    <>
+      <Nav />
+      <div>
+        {/* Icon? */}
+        <h2>Sign Up</h2>
+        <form onSubmit={onSubmit}>
+          <label>
+            Username
+            <input
+              type="text"
+              name="username"
+              value={formValues.username}
+              onChange={onChange}
+            />
+          </label>
+          <label>
+            Phone
+            <input
+              type="text"
+              name="phone_number"
+              value={formValues.phone_number}
+              onChange={onChange}
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              value={formValues.password}
+              onChange={onChange}
+            />
+          </label>
+          <button>Submit</button>
+        </form>
+      </div>
+    </>
   );
 }
