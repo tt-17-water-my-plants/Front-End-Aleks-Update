@@ -10,6 +10,8 @@ import UserProfile from "./components/UserProfile";
 import "./App.css";
 import { Switch, Route } from "react-router";
 import CreateAccount from "./components/CreateAccount";
+import EditPlantForm from "./components/EditPlantForm";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <PrivateRoute path="/userpage" component={UserPage} />
         <PrivateRoute path="/profile" component={UserProfile} />
         <PrivateRoute path="/newplantform" component={NewPlantForm} />
+        <PrivateRoute path="/plants/:id" component={EditPlantForm} />
+        <PrivateRoute path="/editprofile" component={EditProfile} />
         <Route path="/createaccount" component={CreateAccount} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
