@@ -1,9 +1,7 @@
 import React from "react";
-
 import Home from "./components/Home";
 import Login from "./components/Login";
 import PrivateRoute from "./utils/PrivateRoute";
-import Nav from "./components/Nav";
 import NewPlantForm from "./components/NewPlantForm";
 import UserPage from "./components/UserPage";
 import UserProfile from "./components/UserProfile";

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router";
-import styled from 'styled-components';
 import { Form, Container } from './Styles/LoginStyle'
 import Nav from "./Nav";
 
@@ -40,22 +39,25 @@ function Login() {
       <Container className='background-img'>
         <Form id="login-form" onSubmit={onSubmit}>
           <h2>Sign In</h2>
-          <label for='username'/>
-            Username
+          <label>
+            Username:
             <input
               value={user.username}
               onChange={onChange}
               name="username"
               type="text"
+              id="username"
             />
-          <label for ='password'/>
-            Password
+            </label>
+          <label>
+            Password:
             <input
               value={user.password}
               onChange={onChange}
               name="password"
               type="text"
             />
+            </label>
           <button>Sign In</button>
         </Form>
       </Container>
