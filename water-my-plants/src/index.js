@@ -9,12 +9,14 @@ import { createStore, applyMiddleware } from "redux";
 import { reducer } from "./store";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import { GlobalStyle } from './components/Styles/GlobalStyles'
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Router>
     <Provider store={store}>
+      <GlobalStyle />
       <App />
     </Provider>
   </Router>,

@@ -1,29 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Container } from './Styles/NavStyle';
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false)
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("UserId");
   };
 
+  
   return (
-    <div>
+    <Container>
       <h1> Water My Plant</h1>
-      <NavLink to="/">Home</NavLink>
-      <br />
-      <NavLink to="/login">Login</NavLink>
-      <br />
-      <NavLink to="/login" onClick={handleLogout}>
-        Logout
-      </NavLink>
-      <br />
-      <NavLink to="/profile">Profile</NavLink>
-      <br />
-      <NavLink to="/userpage">User Page</NavLink>
-      <br />
-      <NavLink to="/newplantform">New Plant Form</NavLink>
-    </div>
+      <div className={ isOpen ? 'navLinks open' : 'navLinks'}>
+        <NavLink className='navLink' to="/">Home</NavLink>
+        <NavLink className='navLink' to="/login">Login</NavLink>
+        <NavLink className='navLink' to="/login" onClick={handleLogout}>
+          Logout
+        </NavLink>
+        {localStorage.getItem('token') && <NavLink className='navLink' to="/profile">Profile</NavLink>}
+        <NavLink className='navLink' to="/userpage">User Page</NavLink>
+        <NavLink className='navLink' to="/newplantform">New Plant Form</NavLink>
+      </div>
+      <div className={isOpen ? 'burger toggle': 'burger'} onClick={() => {setIsOpen(!isOpen)}}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
+      </div>
+    </Container>
   );
 };
 
