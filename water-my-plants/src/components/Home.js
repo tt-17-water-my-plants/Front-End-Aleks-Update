@@ -10,7 +10,7 @@ const Home = () => {
       <Nav />
       <Container>
         <div className='imageContainer'>
-          <img className='image' src={homeImg} />
+          <img className='image' src={homeImg} alt='wow these flowers are poppin'/>
         </div>
         <Link to="/login">
           <button>Login</button>
