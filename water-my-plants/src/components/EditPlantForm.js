@@ -18,13 +18,13 @@ const EditPlantForm = (props) => {
     axiosWithAuth()
       .get(`/api/plants/${localStorage.getItem("UserId")}`)
       .then((res) => {
-        const editPlant = res.data.filter(
+        const editPlant = res.data.find(
           (item) => item.plant_id === JSON.parse(id)
         );
-        setItem(editPlant[0]);
+        setItem(editPlant);
       })
       .catch((err) => {
-        console.log(err);
+        console.log({ err });
       });
   }, []);
 

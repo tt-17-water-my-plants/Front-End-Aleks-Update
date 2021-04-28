@@ -5,6 +5,7 @@ const initialData = {
   password: "",
   phone_number: "",
   user_id: "",
+  username: "",
 };
 
 const EditProfile = () => {
@@ -14,7 +15,8 @@ const EditProfile = () => {
     axiosWithAuth()
       .get(`/api/users/${localStorage.getItem("UserId")}`)
       .then((res) => {
-        setProfile(res.data);
+        console.log(res.data);
+        setProfile({ ...res.data, password: "" });
       })
       .catch((err) => {
         console.log(err);
@@ -28,6 +30,12 @@ const EditProfile = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    axiosWithAuth()
+      .put(`/api/users/${localStorage.getItem("UserId")}/update`, profile)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
@@ -43,7 +51,7 @@ const EditProfile = () => {
           />
         </label>
         <label>
-          Password
+          Password Required (Update password as well)
           <input
             type="password"
             name="password"

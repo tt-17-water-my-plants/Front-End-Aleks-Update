@@ -19,7 +19,6 @@ export const reducer = (state = initialState, action) => {
       };
     case GET_USER_DATA_SUCCESS:
       return {
-        ...state,
         error: "",
         data: action.payload,
         isLoading: false,
