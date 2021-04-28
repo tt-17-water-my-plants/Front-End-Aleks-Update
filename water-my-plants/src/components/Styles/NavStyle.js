@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -8,6 +7,8 @@ export const Container = styled.div`
     background: thistle;
     height: 10vh;
     width: auto;
+    padding: 5% 0;
+
 
     .navLinks {
         display: flex;
@@ -18,12 +19,10 @@ export const Container = styled.div`
     }
 
     .navLink {
-        color: #583E23;
-        font-family: 'Montserrat Alternates'   
-
-        &:hover {
-            
-        }
+        color: #583E23;  
+    }
+    .navLink:hover {
+        border-bottom: 1px solid black;   
     }
     
     h1 {
@@ -35,16 +34,18 @@ export const Container = styled.div`
         color: #583E23;
     }
 
+@media screen and (max-width: 800px) {
+    .h1 {
+        width: 80%;
     }
 
-@media screen and (max-width: 800px) {
-    
     .burger {
         display: flex;
         flex-direction: column;
         justify-content: space-between; 
         margin-right: 20px;
         cursor: pointer;   
+        
     }
     .line1, 
     .line2,
@@ -55,10 +56,11 @@ export const Container = styled.div`
         width: 25px;
         border-radius: 5px; 
         transition: all .5s ease-in-out;
+        background-color: #583E23;
     }
 
     .navLinks {
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -75,7 +77,7 @@ export const Container = styled.div`
     }
     .open{
         transform: translateX(0%);
-        
+        display: flex; 
     }
 
     .toggle .line1 {
