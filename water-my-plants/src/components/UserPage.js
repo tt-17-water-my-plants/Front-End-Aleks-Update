@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getUserData } from "../store";
+import PlantCard from "./PlantCard";
 
 const UserPage = (props) => {
   useEffect(() => {
@@ -11,12 +13,7 @@ const UserPage = (props) => {
     <div>
       <h1>My plants</h1>
       {props.data.map((item) => (
-        <div className="card-container" key={item.plant_id}>
-          <img src={item.image_url} alt="plant pic" />
-          <h3>{item.nickname}</h3>
-          <p>Species: {item.species}</p>
-          <p>H2OFrequency: {item.h2oFrequency}</p>
-        </div>
+        <PlantCard item={item} key={item.plant_id} />
       ))}
     </div>
   );

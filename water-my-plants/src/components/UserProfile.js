@@ -1,25 +1,41 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const initialData = {
-    password:'',
-    phoneNumber:'',
-}
+  password: "",
+  phoneNumber: "",
+  user_id: "",
+};
 
-function Profile (){
-    const [userData, setUserData] = useState(initialData);
+function Profile() {
+  const [userData, setUserData] = useState(initialData);
+  const { push } = useHistory();
 
-    const onClick = evt => {
-        return console.log(evt)
-    }
-    return(
-        <div>
-            <h2>Profile</h2>
-            <button onClick={onClick}>Update Password</button>
-            <button onClick={onClick}>Update Phone Number</button>
-        </div>
-    )
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/api/users/${localStorage.getItem("UserId")}`)
+      .then((res) => {
+        console.log(res);
+        setUserData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
+  const handleUpdate = (evt) => {
+    push("/editprofile");
+  };
 
+  return (
+    <div>
+      <h2>Profile</h2>
+      <p>Username: {userData.username}</p>
+      <p>Phone Number: {userData.phone_number}</p>
+      <button onClick={handleUpdate}>Update Profile</button>
+    </div>
+  );
 }
 
 export default Profile;
