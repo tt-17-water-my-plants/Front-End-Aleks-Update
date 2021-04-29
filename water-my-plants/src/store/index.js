@@ -1,2 +1,2 @@
 export { reducer } from "./reducers";
-export { getUserData } from "./actions";
+export { getUserData, userLogin } from "./actions";
