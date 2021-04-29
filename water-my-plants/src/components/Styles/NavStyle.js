@@ -7,36 +7,38 @@ export const Container = styled.div`
     background: thistle;
     height: 10vh;
     width: auto;
-    padding: 5% 0;
-
+    padding: 10px 0;
+    
 
     .navLinks {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
-        width: 50%;
+        width: 60%;
         height: 100%;  
+        z-index: 99999;
     }
 
     .navLink {
         color: #583E23;  
+        margin-right: 10px;
     }
     .navLink:hover {
-        border-bottom: 1px solid black;   
+        border-bottom: 2px solid #583E23;   
     }
     
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-family: 'Elsie Swash Caps';
-        width: 50%;
+        width: 40%;
         text-align: left;
         margin-left: 20px;
         color: #583E23;
     }
 
 @media screen and (max-width: 800px) {
-    .h1 {
-        width: 80%;
+    h1 {
+        width: 70%;
     }
 
     .burger {
@@ -60,9 +62,9 @@ export const Container = styled.div`
     }
 
     .navLinks {
-        display: none;
+        font-size: 1.5rem;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         background: linear-gradient(
             to bottom, rgb(211, 192, 210, 1),
@@ -72,11 +74,12 @@ export const Container = styled.div`
         top: 10vh;
         height: 100vh;
         width: 45%;
-        transform: translateX(100%); 
+        transform: translateX(110%); 
         transition: transform .5s ease-in-out; 
+
     }
     .open{
-        transform: translateX(0%);
+        transform: translateX(2%);
         display: flex; 
     }
 

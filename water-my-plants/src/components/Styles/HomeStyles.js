@@ -7,7 +7,6 @@ export const Container = styled.div`
     justify-content: center;
     height: 50vh;
     
-
     button {
         font-size: 2rem;
         margin: 20px;
@@ -20,16 +19,14 @@ export const Container = styled.div`
             cursor: pointer;
         }
     }
-    .image{
-        display: block;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-
-    }
     .imageContainer {
         width: 100%;
-        margin-top: 15vh;
+        position: relative;
+        top: 4px;
     }
-
+    .image{
+        width: 100%;
+        height: 30vh;
+        object-fit: cover;
+    }
 `

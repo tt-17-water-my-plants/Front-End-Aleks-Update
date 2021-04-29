@@ -5,10 +5,8 @@ export const Container = styled.div`
     background-image: url(${image});
     background-size: cover;
     height: 90vh;
-
 `
 export const Form = styled.form`
-    
     display: flex;
     flex-direction: column;
     justify-content: space-around;
