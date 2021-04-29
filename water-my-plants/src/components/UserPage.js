@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { getUserData } from "../store";
 import Nav from "./Nav";
 import PlantCard from "./PlantCard";
+import { Container } from './Styles/UserPageStyles';
 
 const UserPage = (props) => {
   useEffect(() => {
@@ -14,15 +15,19 @@ const UserPage = (props) => {
   return (
     <>
       <Nav />
-      <div>
-        <h1>My plants</h1>
-        <NavLink className="navLink" to="/newplantform">
-          <button>New Plant Form</button>
-        </NavLink>
+      <Container>
+        <div className='title-button'>
+          <h1>My Plants</h1>
+          <NavLink className="navLink" to="/newplantform">
+            <button>Add a Plant!</button>
+          </NavLink>
+        </div>
+        <div className='cards'>
         {props.data.map((item) => (
           <PlantCard item={item} key={item.plant_id} />
         ))}
-      </div>
+        </div>
+      </Container>
     </>
   );
 };
