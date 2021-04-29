@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { getUserData } from "../store";
+import { CardContainer } from './Styles/UserPageStyles';
 
 import { NavContainer } from "./Styles/CardStyles";
 
@@ -24,14 +25,18 @@ const PlantCard = (props) => {
     push(`/plants/${props.item.plant_id}`);
   };
   return (
-    <NavContainer>
+
+    <CardContainer className="card-container">
       <img src={props.item.image_url} alt="plant pic" />
       <h3>{props.item.nickname}</h3>
       <p>Species: {props.item.species}</p>
       <p>H2OFrequency: {props.item.h2oFrequency}</p>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
-    </NavContainer>
+      <div className='buttons'>
+        <button onClick={handleEdit}>Edit</button>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
+    </CardContainer>
+
   );
 };
 

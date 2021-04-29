@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     .navLink {
         color: #583E23;  
-        margin-right: 10px;
+        margin-right: 10%;
     }
     .navLink:hover {
         border-bottom: 2px solid #583E23;   
