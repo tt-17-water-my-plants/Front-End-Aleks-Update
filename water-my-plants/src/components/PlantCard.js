@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { getUserData } from "../store";
+
 import { CardContainer } from "./Styles/UserPageStyles";
+
 
 const PlantCard = (props) => {
   const { push } = useHistory();
