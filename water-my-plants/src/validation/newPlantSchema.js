@@ -10,4 +10,6 @@ export default yup.object().shape({
     .string()
     .required("must fill out watering instructions")
     .min(5, "minimum of 5 characters"),
+  image: yup
+    .string(),
 });

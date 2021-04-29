@@ -137,7 +137,7 @@ function CreatePlant(props) {
             <div className="errors">{errors.h2oFrequency}</div>
           </label>
           <label>
-            {"Image (optional)"}
+            {"Image url (optional)"}
             <input
               type="text"
               name="image"
