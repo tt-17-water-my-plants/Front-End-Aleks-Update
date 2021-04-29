@@ -5,6 +5,8 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { getUserData } from "../store";
 import { CardContainer } from './Styles/UserPageStyles';
 
+import { NavContainer } from "./Styles/CardStyles";
+
 const PlantCard = (props) => {
   const { push } = useHistory();
 
@@ -23,6 +25,7 @@ const PlantCard = (props) => {
     push(`/plants/${props.item.plant_id}`);
   };
   return (
+
     <CardContainer className="card-container">
       <img src={props.item.image_url} alt="plant pic" />
       <h3>{props.item.nickname}</h3>
@@ -33,6 +36,7 @@ const PlantCard = (props) => {
         <button onClick={handleDelete}>Delete</button>
       </div>
     </CardContainer>
+
   );
 };
 
