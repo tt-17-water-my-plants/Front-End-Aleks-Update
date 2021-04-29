@@ -5,8 +5,6 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { getUserData } from "../store";
 import { CardContainer } from './Styles/UserPageStyles';
 
-import { NavContainer } from "./Styles/CardStyles";
-
 const PlantCard = (props) => {
   const { push } = useHistory();
 

@@ -40,6 +40,9 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow:  4px 2px 3px gray;
 
     img {
         width: 100%;
