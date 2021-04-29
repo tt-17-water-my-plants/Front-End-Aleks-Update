@@ -20,15 +20,23 @@ const Nav = () => {
     <Container>
       <h1> Water My Plant</h1>
       <div className={isOpen ? "navLinks open" : "navLinks"}>
-        <NavLink className="navLink" to="/">
-          Home
-        </NavLink>
-        <NavLink className="navLink" to="/login">
-          Login
-        </NavLink>
+        {!loggedIn ? (
+          <NavLink className="navLink" to="/">
+            Home
+          </NavLink>
+        ) : (
+          <NavLink className="navLink" to="/userpage">
+            Home
+          </NavLink>
+        )}
+        {!loggedIn && (
+          <NavLink className="navLink" to="/login">
+            Login
+          </NavLink>
+        )}
         {loggedIn && (
-          <NavLink className="navLink" to="/login" onClick={handleLogout}>
-            Logout
+          <NavLink className="navLink" to="/userpage">
+            My Plants
           </NavLink>
         )}
         {loggedIn && (
@@ -37,13 +45,8 @@ const Nav = () => {
           </NavLink>
         )}
         {loggedIn && (
-          <NavLink className="navLink" to="/userpage">
-            User Page
-          </NavLink>
-        )}
-        {loggedIn && (
-          <NavLink className="navLink" to="/newplantform">
-            New Plant Form
+          <NavLink className="navLink" to="/login" onClick={handleLogout}>
+            Logout
           </NavLink>
         )}
       </div>

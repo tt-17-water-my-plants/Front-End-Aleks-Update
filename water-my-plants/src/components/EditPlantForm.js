@@ -84,7 +84,7 @@ const EditPlantForm = (props) => {
             {"Image (optional)"}
             <input
               type="text"
-              name="image"
+              name="image_url"
               value={item.image_url}
               onChange={handleChange}
             />
