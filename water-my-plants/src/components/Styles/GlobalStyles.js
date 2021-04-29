@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         text-decoration: none;
-        font-family: 'Montserrat Alternates'  
+        font-family: 'Montserrat Alternates'; 
+    }
+
+    body {
+        overflow-x: hidden;
     }
 `
