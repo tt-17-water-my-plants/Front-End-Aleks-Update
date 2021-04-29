@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: thistle;
+    background: #A6A867;
     height: 10vh;
     width: auto;
     padding: 10px 0;
@@ -62,13 +62,14 @@ export const Container = styled.div`
     }
 
     .navLinks {
+        background: #A6A867;
         font-size: 1.5rem;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         background: linear-gradient(
-            to bottom, rgb(211, 192, 210, 1),
-            rgb(211, 192, 210, .3));
+            to bottom, rgb(166, 168, 103, 1),
+            rgb(166, 168, 103, .3));
         position: absolute;
         right: 0px;
         top: 10vh;
