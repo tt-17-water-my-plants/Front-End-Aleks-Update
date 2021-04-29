@@ -119,9 +119,10 @@ function CreatePlant(props) {
               <option disabled value="">
                 --SELECT--
               </option>
-              <option value="temp">temporary option</option>
               {plantNames.map((plant) => (
-                <option value={plant.name}>{plant.name}</option>
+                <option key={plant.name} value={plant.name}>
+                  {plant.name}
+                </option>
               ))}
             </select>
             <div className="errors">{errors.species}</div>
