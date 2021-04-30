@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,15 +29,37 @@ export const Container = styled.div`
     .cards {
         display: flex;
         flex-wrap: wrap;
-        width: 90%;
-        margin: 0 5%;
-        height: auto;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        height: auto;   
     }
+    
+@media screen and (max-width: 1331px) {
+    .cards {
+        width: 90%;
+    } 
+}
+@media screen and (max-width: 1180px) {
+    .cards {
+        width: 70%;
+    } 
+}
+@media screen and (max-width: 970px) {
+    .cards {
+        width: 85%;
+    } 
+}
+@media screen and (max-width: 800px) {
+    .cards {
+        width: 60%;
+    } 
+}
 `
 export const CardContainer = styled.div`
-    height: 50%;
-    width: 40%;
-    margin: 0 5% 3%;
+    height: 350px;
+    width: 300px;
+    margin: 5% 2.5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,6 +78,8 @@ export const CardContainer = styled.div`
     
     p{
         font-size: .8rem;
+        position: relative;
+        margin-bottom:
     }
 
     button {
@@ -63,11 +88,16 @@ export const CardContainer = styled.div`
         background-color: #E3DC95;
         transition: all .2s ease-in-out;
         margin: 5px;
+        position: relative;
         
         &:hover {
             transform: scale(1.1);
             cursor: pointer;
             background-color: #D3C0D2;
         }
+    }
+
+    @media screen and (max-width: 800px) {
+        margin: 5% auto;    
     }
 `
