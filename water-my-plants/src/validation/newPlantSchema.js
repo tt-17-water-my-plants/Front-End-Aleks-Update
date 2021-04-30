@@ -6,10 +6,12 @@ export default yup.object().shape({
     .required("nick name is required")
     .min(2, "must be at least 2 characters long"),
   species: yup.string().required("please select one"),
-  h2oFrequency: yup
+  frequency: yup
     .string()
-    .required("must fill out watering instructions")
-    .min(5, "minimum of 5 characters"),
+    .required("how many times should we water this plant?"),
+  lengthOfTime: yup
+    .string()
+    .required("and how often should we water?"),
   image: yup
     .string(),
 });

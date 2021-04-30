@@ -29,7 +29,7 @@ const PlantCard = (props) => {
       <img src={props.item.image_url} alt="plant pic" />
       <h3>{props.item.nickname}</h3>
       <p>Species: {props.item.species}</p>
-      <p>H2OFrequency: {props.item.h2oFrequency}</p>
+      <p>Water me {props.item.h2oFrequency}</p>
       <div className="buttons">
         <button onClick={handleEdit}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
