@@ -44,9 +44,12 @@ const EditProfile = () => {
     axiosWithAuth()
       .put(`/api/users/${localStorage.getItem("UserId")}/update`, profile)
       .then((res) => {
+        alert("User's information updated!")
         console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("Something went wrong!")
+        console.log(err)});
   };
   return (
     <>
@@ -68,7 +71,7 @@ const EditProfile = () => {
           </label>
           <br />
           <label>
-            Password Required (Update password as well)
+            Password Required(Enter the password to confirm an action)
             <br />
             <input
               type="password"
