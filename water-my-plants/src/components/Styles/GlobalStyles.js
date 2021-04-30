@@ -27,8 +27,4 @@ export const GlobalStyle = createGlobalStyle`
             cursor: pointer;
         }
     }
-
-    p{
-        margin:.5rem;
-    }
 `
