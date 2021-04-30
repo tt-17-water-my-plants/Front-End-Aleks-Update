@@ -89,7 +89,7 @@ function CreatePlant(props) {
       nickname: formValues.nickname.trim(),
       species: formValues.species,
       h2oFrequency: `${formValues.frequency} times a ${formValues.lengthOfTime}`,
-      // image_url: formValues.image_url.trim(),
+      image_url: formValues.image_url.trim(),
       // user_id: JSON.parse(localStorage.getItem("UserId")),
     };
     axiosWithAuth()
