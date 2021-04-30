@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import Nav from "./Nav";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const Container = styled.div`
   margin: 10% auto;
   height: 300px;
 
-  h2{ 
+  h2 {
     margin-top: 5%;
   }
   form {
@@ -29,15 +29,15 @@ const Container = styled.div`
     }
   }
 
-@media screen and (max-width: 475px) {
-  width: 90%;
+  @media screen and (max-width: 475px) {
+    width: 90%;
 
-  button {
-    width: 50%;
-    margin: 0 auto;
+    button {
+      width: 50%;
+      margin: 0 auto;
+    }
   }
-}
-`
+`;
 
 const initialFormValues = {
   username: "",
@@ -65,7 +65,7 @@ export default function CreateAccount() {
       password: formValues.password.trim(),
     };
     axiosWithAuth()
-      .post("/api/users/register", newUser)
+      .post("/api/register", newUser)
       .then((res) => {
         console.log(res);
         setFormValues(initialFormValues);

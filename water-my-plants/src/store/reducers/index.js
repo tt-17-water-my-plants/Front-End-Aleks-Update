@@ -43,7 +43,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         loggingIn: false,
-        user_id: action.payload.user_id,
+        user_id: action.payload.id,
       };
     case USER_LOGIN_FAILURE:
       return {

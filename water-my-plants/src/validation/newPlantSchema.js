@@ -9,9 +9,6 @@ export default yup.object().shape({
   frequency: yup
     .string()
     .required("how many times should we water this plant?"),
-  lengthOfTime: yup
-    .string()
-    .required("and how often should we water?"),
-  image: yup
-    .string(),
+  lengthOfTime: yup.string().required("and how often should we water?"),
+  image_url: yup.string(),
 });

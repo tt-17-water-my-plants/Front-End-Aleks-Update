@@ -19,9 +19,9 @@ const EditPlantForm = (props) => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`/api/plants/${localStorage.getItem("UserId")}`)
+      .get(`/api/users/${localStorage.getItem("UserId")}`)
       .then((res) => {
-        const editPlant = res.data.find(
+        const editPlant = res.data.plants.find(
           (item) => item.plant_id === JSON.parse(id)
         );
         setItem(editPlant);

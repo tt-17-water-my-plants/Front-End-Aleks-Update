@@ -11,10 +11,10 @@ export const getUserData = (id) => {
   return (dispatch) => {
     dispatch({ type: GET_USER_DATA_LOADING });
     axiosWithAuth()
-      .get(`/api/plants/${id}`)
+      .get(`/api/users/${id}`)
       .then((res) => {
         console.log(res);
-        dispatch({ type: GET_USER_DATA_SUCCESS, payload: res.data });
+        dispatch({ type: GET_USER_DATA_SUCCESS, payload: res.data.plants });
       })
       .catch((err) => {
         dispatch({ type: GET_USER_DATA_FAILURE, payload: err.message });
@@ -26,11 +26,11 @@ export const userLogin = (user) => {
   return (dispatch) => {
     dispatch({ type: USER_LOGIN_LOADING });
     axiosWithAuth()
-      .post("/api/users/login", user)
+      .post("/api/login", user)
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("UserId", res.data.user_id);
+        localStorage.setItem("UserId", res.data.id);
         dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data });
         window.location.pathname = "/userpage";
       })

@@ -89,11 +89,11 @@ function CreatePlant(props) {
       nickname: formValues.nickname.trim(),
       species: formValues.species,
       h2oFrequency: `${formValues.frequency} times a ${formValues.lengthOfTime}`,
-      image_url: formValues.image_url.trim(),
-      user_id: JSON.parse(localStorage.getItem("UserId")),
+      // image_url: formValues.image_url.trim(),
+      // user_id: JSON.parse(localStorage.getItem("UserId")),
     };
     axiosWithAuth()
-      .post(`/api/plants/${localStorage.getItem("UserId")}`, newPlant)
+      .post(`/api/users/${localStorage.getItem("UserId")}/add`, newPlant)
       .then((res) => {
         console.log(res);
         setFormValues(initialFormValues);
@@ -179,8 +179,8 @@ function CreatePlant(props) {
             {"Image url (optional)"}
             <input
               type="text"
-              name="image"
-              value={formValues.image}
+              name="image_url"
+              value={formValues.image_url}
               onChange={change}
             />
           </label>
@@ -198,6 +198,7 @@ function CreatePlant(props) {
 const mapStateToProps = (state) => {
   return {
     data: state.data,
+    user_id: state.user_id,
   };
 };
 
