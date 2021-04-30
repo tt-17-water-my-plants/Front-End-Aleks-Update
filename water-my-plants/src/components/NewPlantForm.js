@@ -21,6 +21,12 @@ const Form = styled.form`
   align-items: center;
   height: 100%;
 
+  .watering {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .errors {
     color: red;
   }
@@ -29,13 +35,15 @@ const Form = styled.form`
 const initialFormValues = {
   nickname: "",
   species: "",
-  h2oFrequency: "",
+  frequency: "",
+  lengthOfTime: "", 
   image_url: "",
 };
 const initialErrors = {
   nickname: "",
   species: "",
-  h2oFrequency: "",
+  frequency: "",
+  lengthOfTime: "", 
 };
 
 function CreatePlant(props) {
@@ -77,7 +85,7 @@ function CreatePlant(props) {
     const newPlant = {
       nickname: formValues.nickname.trim(),
       species: formValues.species,
-      h2oFrequency: formValues.h2oFrequency.trim(),
+      h2oFrequency: `${formValues.frequency} times a ${formValues.lengthOfTime}`,
       image_url: formValues.image_url.trim(),
       user_id: JSON.parse(localStorage.getItem("UserId")),
     };
@@ -120,23 +128,47 @@ function CreatePlant(props) {
                 --SELECT--
               </option>
               {plantNames.map((plant) => (
-                <option key={plant.name} value={plant.name}>
-                  {plant.name}
-                </option>
+              <option key={plant.name} value={plant.name}>
+                 {plant.name}
+              </option>
+
               ))}
             </select>
             <div className="errors">{errors.species}</div>
           </label>
-          <label>
-            H<sub>2</sub>O frequency
-            <input
-              type="text"
-              name="h2oFrequency"
-              value={formValues.h2oFrequency}
-              onChange={change}
-            />
-            <div className="errors">{errors.h2oFrequency}</div>
-          </label>
+            <label className='watering'>
+             <span>H<sub>2</sub>O</span>
+              <select
+                type="number"
+                name="frequency"
+                value={formValues.frequency}
+                onChange={change}
+              >
+                <option disabled value=''>select</option>
+                <option value='1'>one</option>
+                <option value='2'>two</option>
+                <option value='3'>three</option>
+                <option value='4'>four</option>
+                <option value='5'>five</option>
+                <option value='6'>six</option>
+                <option value='7'>seven</option>
+                <option value='8'>eight</option>
+                <option value='9'>nine</option>
+                <option value='10'>ten</option>
+              </select>
+              <div>{'time(s) a'}</div>
+              <select
+                type="text"
+                name="lengthOfTime"
+                value={formValues.lengthOfTime}
+                onChange={change}
+              >
+                  <option value='day'>day</option>
+                  <option value='week'>week</option>
+                  <option value='month'>month</option>
+              </select>
+              <div className="errors">{errors.h2oFrequency}</div>
+            </label>
           <label>
             {"Image url (optional)"}
             <input
