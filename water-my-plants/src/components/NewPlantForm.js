@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import plantNames from "./plantData";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 80vh;
@@ -36,14 +37,14 @@ const initialFormValues = {
   nickname: "",
   species: "",
   frequency: "",
-  lengthOfTime: "", 
+  lengthOfTime: "",
   image_url: "",
 };
 const initialErrors = {
   nickname: "",
   species: "",
   frequency: "",
-  lengthOfTime: "", 
+  lengthOfTime: "",
 };
 
 function CreatePlant(props) {
@@ -128,47 +129,50 @@ function CreatePlant(props) {
                 --SELECT--
               </option>
               {plantNames.map((plant) => (
-              <option key={plant.name} value={plant.name}>
-                 {plant.name}
-              </option>
-
+                <option key={plant.name} value={plant.name}>
+                  {plant.name}
+                </option>
               ))}
             </select>
             <div className="errors">{errors.species}</div>
           </label>
-            <label className='watering'>
-             <span>H<sub>2</sub>O</span>
-              <select
-                type="number"
-                name="frequency"
-                value={formValues.frequency}
-                onChange={change}
-              >
-                <option disabled value=''>select</option>
-                <option value='1'>one</option>
-                <option value='2'>two</option>
-                <option value='3'>three</option>
-                <option value='4'>four</option>
-                <option value='5'>five</option>
-                <option value='6'>six</option>
-                <option value='7'>seven</option>
-                <option value='8'>eight</option>
-                <option value='9'>nine</option>
-                <option value='10'>ten</option>
-              </select>
-              <div>{'time(s) a'}</div>
-              <select
-                type="text"
-                name="lengthOfTime"
-                value={formValues.lengthOfTime}
-                onChange={change}
-              >
-                  <option value='day'>day</option>
-                  <option value='week'>week</option>
-                  <option value='month'>month</option>
-              </select>
-              <div className="errors">{errors.h2oFrequency}</div>
-            </label>
+          <label className="watering">
+            <span>
+              H<sub>2</sub>O
+            </span>
+            <select
+              type="number"
+              name="frequency"
+              value={formValues.frequency}
+              onChange={change}
+            >
+              <option disabled value="">
+                select
+              </option>
+              <option value="1">one</option>
+              <option value="2">two</option>
+              <option value="3">three</option>
+              <option value="4">four</option>
+              <option value="5">five</option>
+              <option value="6">six</option>
+              <option value="7">seven</option>
+              <option value="8">eight</option>
+              <option value="9">nine</option>
+              <option value="10">ten</option>
+            </select>
+            <div>{"time(s) a"}</div>
+            <select
+              type="text"
+              name="lengthOfTime"
+              value={formValues.lengthOfTime}
+              onChange={change}
+            >
+              <option value="day">day</option>
+              <option value="week">week</option>
+              <option value="month">month</option>
+            </select>
+            <div className="errors">{errors.h2oFrequency}</div>
+          </label>
           <label>
             {"Image url (optional)"}
             <input
@@ -178,7 +182,12 @@ function CreatePlant(props) {
               onChange={change}
             />
           </label>
-          <button disabled={disabled}>Create</button>
+          <div>
+            <button disabled={disabled}>Create</button>
+            <Link to="/userpage">
+              <button>Cancel</button>
+            </Link>
+          </div>
         </Form>
       </Container>
     </>

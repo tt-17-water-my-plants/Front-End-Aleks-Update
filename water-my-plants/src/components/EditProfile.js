@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import Nav from "./Nav";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  form {
+    flex-direction: column;
+  }
+`;
 
 const initialData = {
   password: "",
@@ -41,20 +51,25 @@ const EditProfile = () => {
   return (
     <>
       <Nav />
-      <div>
+      <Container>
         <h2>Edit Profile</h2>
         <form onSubmit={onSubmit}>
+          <br />
           <label>
-            Phone
+            Phone Number
+            <br />
             <input
               type="text"
               name="phone_number"
               value={profile.phone_number}
               onChange={onChange}
             />
+            <br />
           </label>
+          <br />
           <label>
             Password Required (Update password as well)
+            <br />
             <input
               type="password"
               name="password"
@@ -62,9 +77,13 @@ const EditProfile = () => {
               onChange={onChange}
             />
           </label>
+          <br />
           <button>Update</button>
+          <Link to="/profile">
+            <button>Cancel</button>
+          </Link>
         </form>
-      </div>
+      </Container>
     </>
   );
 };

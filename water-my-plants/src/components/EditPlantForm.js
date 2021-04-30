@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import Nav from "./Nav";
-import { Container } from './Styles/EditPlantStyles'
+import { Container } from "./Styles/EditPlantStyles";
 
 const initialState = {
   nickname: "",
@@ -90,7 +91,12 @@ const EditPlantForm = (props) => {
               onChange={handleChange}
             />
           </label>
-          <button>Edit</button>
+          <div>
+            <button>Edit</button>
+            <Link to="/userpage">
+              <button>Cancel</button>
+            </Link>
+          </div>
         </form>
       </Container>
     </>

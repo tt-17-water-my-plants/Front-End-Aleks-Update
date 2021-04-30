@@ -14,7 +14,6 @@ import EditProfile from "./components/EditProfile";
 function App() {
   return (
     <div className="App">
-      {/* <Nav /> */}
       <Switch>
         {/* <PrivateRoute path='/userpage/items/:id' component={ItemPage} /> */}
         <PrivateRoute path="/userpage" component={UserPage} />
