@@ -9,9 +9,6 @@ export const Container = styled.nav`
     width: auto;
     padding: 10px 0;
     
-    
-    
-
     .navLinks {
         display: flex;
         justify-content: flex-end;
@@ -19,14 +16,17 @@ export const Container = styled.nav`
         width: 60%;
         height: 100%;  
         z-index: 99999;
+        
     }
 
     .navLink {
         color: #583E23;  
         margin-right: 10%;
+        transition: all .2s ease-in-out;
     }
     .navLink:hover {
-        border-bottom: 2px solid #583E23;   
+        border-bottom: 3px solid #583E23; 
+        border-top: 3px solid #583E23;
     }
     
     h1 {
@@ -69,20 +69,37 @@ export const Container = styled.nav`
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        background: linear-gradient(
-            to bottom, rgb(166, 168, 103, 1),
-            rgb(166, 168, 103, .3));
+        background:  rgb(166, 168, 103);
         position: absolute;
         right: 0px;
         top: 10vh;
-        height: 100vh;
+        height: 50vh;
         width: 45%;
-        transform: translateX(110%); 
+        transform: translateX(100%); 
         transition: transform .5s ease-in-out; 
+        border-radius: 0px 0px 0px 24px;
 
     }
+
+    .open .navLink {
+        width: 100%;
+        margin-right: 0;
+        padding: 10% 0;
+        transition: all .2s ease-in-out;
+
+        &:last-child {
+           margin-bottom: 5%;
+        }
+     
+        &:hover {
+            background: #E3DCC2;
+            border: none;
+        }
+
+    }
+
     .open{
-        transform: translateX(2%);
+        transform: translateX(0%);
         display: flex; 
     }
 
