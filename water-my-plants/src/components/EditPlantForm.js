@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import Nav from "./Nav";
+import { Container } from './Styles/EditPlantStyles'
 
 const initialState = {
   nickname: "",
@@ -51,7 +52,7 @@ const EditPlantForm = (props) => {
   return (
     <>
       <Nav />
-      <div>
+      <Container>
         <form onSubmit={handleSubmit}>
           <label>
             Nickname
@@ -91,7 +92,7 @@ const EditPlantForm = (props) => {
           </label>
           <button>Edit</button>
         </form>
-      </div>
+      </Container>
     </>
   );
 };
