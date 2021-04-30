@@ -20,7 +20,6 @@ function Login(props) {
     const { name, value } = evt.target;
     setUser({ ...user, [name]: value });
   };
-
   return (
     <>
       <Nav />
