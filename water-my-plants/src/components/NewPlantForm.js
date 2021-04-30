@@ -27,7 +27,9 @@ const Form = styled.form`
     display: flex;
     justify-content: space-between;
   }
-
+  .watering select {
+    width: 10rem;
+  }
   .errors {
     color: red;
   }
