@@ -1,32 +1,20 @@
 import React, { useState } from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import { useHistory } from "react-router";
-import { Form, Container } from './Styles/LoginStyle'
+import { Form, Container } from "./Styles/LoginStyle";
 import Nav from "./Nav";
-
+import { connect } from "react-redux";
+import { userLogin } from "../store";
 
 const initialUser = {
   username: "",
   password: "",
 };
 
-function Login() {
+function Login(props) {
   const [user, setUser] = useState(initialUser);
-  const { push } = useHistory();
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    axiosWithAuth()
-      .post("/api/users/login", user)
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("UserId", res.data.user_id);
-        push("/userpage");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    props.userLogin(user);
   };
   const onChange = (evt) => {
     const { name, value } = evt.target;
@@ -36,7 +24,7 @@ function Login() {
   return (
     <>
       <Nav />
-      <Container className='background-img'>
+      <Container className="background-img">
         <Form id="login-form" onSubmit={onSubmit}>
           <h2>Sign In</h2>
           <label>
@@ -48,7 +36,7 @@ function Login() {
               type="text"
               id="username"
             />
-            </label>
+          </label>
           <label>
             Password:
             <input
@@ -57,13 +45,17 @@ function Login() {
               name="password"
               type="text"
             />
-            </label>
+          </label>
           <button>Sign In</button>
         </Form>
       </Container>
     </>
-
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    user_id: state.user_id,
+  };
+};
 
-export default Login;
+export default connect(mapStateToProps, { userLogin })(Login);
