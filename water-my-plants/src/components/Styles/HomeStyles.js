@@ -5,13 +5,15 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 50vh;
+    height: 100%;
+    margin-top: 5vh;
     
-    .icon {
+    
+    .iconDiv {
+       
         background: #583E23;
         border-radius: 50%;
         padding: 0 3%;
-        
         box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2); 
 
         &:first-child {

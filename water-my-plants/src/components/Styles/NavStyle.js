@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -8,6 +8,8 @@ export const Container = styled.div`
     height: 10vh;
     width: auto;
     padding: 10px 0;
+    
+    
     
 
     .navLinks {

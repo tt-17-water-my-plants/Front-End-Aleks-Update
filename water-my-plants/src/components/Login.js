@@ -43,7 +43,7 @@ function Login(props) {
               value={user.password}
               onChange={onChange}
               name="password"
-              type="text"
+              type="password"
             />
           </label>
           <button>Sign In</button>
