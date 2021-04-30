@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from './Styles/HomeStyles';
-import homeImg from './Styles/images/home-image.png';
+import { RiPlantLine } from "react-icons/ri";
 import Nav from "./Nav";
 
 const Home = () => {
@@ -9,9 +9,7 @@ const Home = () => {
     <>
       <Nav />
       <Container>
-        <div className='imageContainer'>
-          <img className='image' src={homeImg} alt='wow these flowers are poppin'/>
-        </div>
+        <div className='icon'><RiPlantLine /></div>
         <Link to="/login">
           <button>Login</button>
         </Link>
