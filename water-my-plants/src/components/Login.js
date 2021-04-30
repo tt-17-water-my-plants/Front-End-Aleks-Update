@@ -27,7 +27,7 @@ function Login(props) {
       <Container className="background-img">
         <Form id="login-form" onSubmit={onSubmit}>
           <h2>Sign In</h2>
-          <label>
+          <label htmlFor='username' />
             Username:
             <input
               value={user.username}
@@ -36,8 +36,7 @@ function Login(props) {
               type="text"
               id="username"
             />
-          </label>
-          <label>
+          <label htmlFor='password' />
             Password:
             <input
               value={user.password}
@@ -45,7 +44,6 @@ function Login(props) {
               name="password"
               type="password"
             />
-          </label>
           <button>Sign In</button>
         </Form>
       </Container>
