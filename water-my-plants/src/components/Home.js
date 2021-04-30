@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Nav />
       <Container>
-        <div className='icon'><RiPlantLine /></div>
+        <div className='iconDiv'><RiPlantLine /></div>
         <Link to="/login">
           <button>Login</button>
         </Link>
