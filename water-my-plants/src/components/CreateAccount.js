@@ -2,6 +2,42 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import Nav from "./Nav";
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  margin: 10% auto;
+  height: 300px;
+
+  h2{ 
+    margin-top: 5%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    margin: 5% auto;
+
+    input {
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+  }
+
+@media screen and (max-width: 475px) {
+  width: 90%;
+
+  button {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+`
 
 const initialFormValues = {
   username: "",
@@ -43,7 +79,7 @@ export default function CreateAccount() {
   return (
     <>
       <Nav />
-      <div>
+      <Container>
         {/* Icon? */}
         <h2>Sign Up</h2>
         <form onSubmit={onSubmit}>
@@ -76,7 +112,7 @@ export default function CreateAccount() {
           </label>
           <button>Submit</button>
         </form>
-      </div>
+      </Container>
     </>
   );
 }
