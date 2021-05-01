@@ -13,7 +13,9 @@ const UserPage = (props) => {
   }, []);
 
   return (
-    <>
+    <div>
+      {props.isLoading && <h2>Loading...</h2>}
+    {!props.isLoading && <>
       <Nav />
       <Container>
         <div className="title-button">
@@ -28,13 +30,15 @@ const UserPage = (props) => {
           ))}
         </div>
       </Container>
-    </>
+    </>}
+    </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     data: state.data,
+    isLoading:state.isLoading
   };
 };
 

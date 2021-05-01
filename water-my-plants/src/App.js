@@ -6,10 +6,11 @@ import NewPlantForm from "./components/NewPlantForm";
 import UserPage from "./components/UserPage";
 import UserProfile from "./components/UserProfile";
 import "./App.css";
-import { Switch, Route } from "react-router";
+import { Switch } from "react-router";
 import CreateAccount from "./components/CreateAccount";
 import EditPlantForm from "./components/EditPlantForm";
 import EditProfile from "./components/EditProfile";
+import HiddenRoute from './utils/HiddenRoute'
 
 function App() {
   return (
@@ -21,9 +22,9 @@ function App() {
         <PrivateRoute path="/newplantform" component={NewPlantForm} />
         <PrivateRoute path="/plants/:id" component={EditPlantForm} />
         <PrivateRoute path="/editprofile" component={EditProfile} />
-        <Route path="/createaccount" component={CreateAccount} />
-        <Route path="/login" component={Login} />
-        <Route exact path="/" component={Home} />
+        <HiddenRoute path="/createaccount" component={CreateAccount} />
+        <HiddenRoute path="/login" component={Login} />
+        <HiddenRoute exact path="/" component={Home} />
         {/* <Route
           path="/"
           component={() => {
